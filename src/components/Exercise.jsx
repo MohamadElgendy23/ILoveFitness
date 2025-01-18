@@ -12,7 +12,7 @@ function Exercise(props) {
         <p>
           <span className="font-bold">Instructions:</span> {props.instructions}
         </p>
-        <p></p>
+        <a href="">Learn More</a>
       </div>
     </div>
   );

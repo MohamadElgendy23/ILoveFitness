@@ -1,5 +1,5 @@
 // this array contains the objects of exercises that will be displayed for users to view and save (as they like).
-// fields are name, description, instructions, and image.
+// fields are name, description, instructions, image, and link.
 const exercisesArr = [
   {
     name: "Pushups",
@@ -9,6 +9,7 @@ const exercisesArr = [
       "From a prone position, the hands are placed under the shoulders with the elbows extended. Keeping the back and legs straight with the toes touching the ground. The body is lowered until the upper arm is parallel to the ground. Then reverse the movement and raise the body until arm is extended.",
     image:
       "https://thumbs.dreamstime.com/z/man-character-doing-push-up-flat-vector-illustration-isolated-different-layers-man-character-doing-push-up-flat-vector-236370303.jpg?w=768",
+    link: "https://en.wikipedia.org/wiki/Push-up",
   },
   {
     name: "Squats",
@@ -17,6 +18,7 @@ const exercisesArr = [
     instructions:
       "Stand with your feet slightly greater than shoulder-width apart and your toes pointing ahead. Slowly descend, bending through the hips, knees and ankles. Stop when your knees reach a 90-degree angle. Then return to the starting position.",
     image: "https://thumbs.dreamstime.com/z/basic-rgb-221835086.jpg?w=768",
+    link: ""
   },
   {
     name: "Crunches",
