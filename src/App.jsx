@@ -10,6 +10,7 @@ function App() {
         This app displays various muscle building exercises for gym goers and
         lovers of fitness!
       </p>
+      <div className=""></div>
     </div>
   );
 }
