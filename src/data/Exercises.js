@@ -32,7 +32,7 @@ const exercisesArr = [
     instructions:
       "Get down on all fours and position your hands under your shoulders and your knees under your hips. Kick back with one leg and squeeze the glutes. Bend the knee, lower the leg, and repeat. Switch legs.",
     image:
-      "https://www.realsimple.com/thmb/JD66qzumvb19EmPhYW5CB2ieBSo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/donkey-kicks-exercise-form-d3ab6b2ac16445feacd1e61e5fbcca6a.jpg",
+      "https://workoutlabs.com/wp-content/uploads/watermarked/Donkey_kicks_F_WorkoutLabs.png",
   },
   {
     name: "Triceps Dips",
