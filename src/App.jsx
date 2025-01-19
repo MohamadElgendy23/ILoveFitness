@@ -5,12 +5,10 @@ import Exercise from "./components/Exercise";
 function App() {
   const [exercises, setExercises] = useState(exercisesArr);
   const [savedExercises, setSavedExercises] = useState(() => {
-    localStorage.getItem("saved-exercises")
-      ? JSON.parse(localStorage.getItem("saved-exercises"))
-      : [];
+    const currSavedExercises = localStorage.getItem("saved-exercises");
+    return currSavedExercises ? JSON.parse(currSavedExercises) : [];
   });
   const [inputContent, setInputContent] = useState("");
-  //const [savedCount, setSavedCount] = useState(0);
 
   useEffect(() => {
     localStorage.setItem("saved-exercises", JSON.stringify(savedExercises));
@@ -75,7 +73,9 @@ function App() {
             className="bg-blue-600 p-2 w-full rounded-md hover:bg-blue-400"
             type="button"
             onClick={() => {
-              setExercises(generateFilteredExercises("saved"));
+              savedExercises.length
+                ? setExercises(generateFilteredExercises("saved"))
+                : setExercises(generateFilteredExercises("search"));
             }}
           >
             View Saved
