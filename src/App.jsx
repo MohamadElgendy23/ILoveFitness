@@ -91,6 +91,7 @@ function App() {
             <Exercise
               key={index}
               exercise={exercise}
+              savedExercises={savedExercises}
               setSavedExercises={setSavedExercises}
             />
           );
