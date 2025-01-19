@@ -4,12 +4,23 @@ import exercisesArr from "./data/Exercises";
 import Exercise from "./components/Exercise";
 function App() {
   const [exercises, setExercises] = useState(exercisesArr);
-  const [inputContent, setInputContent] = useState(null);
-  const [showClear, setShowClear] = useState(false);
+  const [inputContent, setInputContent] = useState("");
+
+  function generateFilteredExercises() {
+    console.log(inputContent);
+    const filteredExercises = exercises.filter((exercise) => {
+      return (
+        exercise.name.includes(inputContent) ||
+        exercise.instructions.includes(inputContent)
+      );
+    });
+    return filteredExercises;
+  }
   function clearInput() {
     setInputContent("");
     setExercises(exercisesArr);
   }
+
   return (
     <div className="flex items-center flex-col justify-center gap-5 mt-5">
       <h1 className="font-bold text-6xl">ILoveFitness</h1>
@@ -26,6 +37,7 @@ function App() {
             value={inputContent}
             onChange={(e) => {
               setInputContent(e.target.value);
+              setExercises(generateFilteredExercises());
             }}
             required
           />
