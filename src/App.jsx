@@ -7,14 +7,13 @@ function App() {
   const [inputContent, setInputContent] = useState("");
 
   function generateFilteredExercises() {
-    console.log(inputContent);
-    const filteredExercises = exercises.filter((exercise) => {
+    const filteredExercises = exercisesArr.filter((exercise) => {
       return (
-        exercise.name.includes(inputContent) ||
-        exercise.instructions.includes(inputContent)
+        exercise.name.toLowerCase().includes(inputContent.toLowerCase()) ||
+        exercise.instructions.toLowerCase().includes(inputContent.toLowerCase())
       );
     });
-    console.log(exercises, filteredExercises);
+
     return filteredExercises;
   }
   function clearInput() {
