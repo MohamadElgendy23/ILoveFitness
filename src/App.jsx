@@ -4,6 +4,7 @@ import exercisesArr from "./data/Exercises";
 import Exercise from "./components/Exercise";
 function App() {
   const [exercises, setExercises] = useState(exercisesArr);
+  const [savedExercises, setSavedExercises] = useState([]);
   const [inputContent, setInputContent] = useState("");
   const [savedCount, setSavedCount] = useState(0);
 
@@ -11,6 +12,7 @@ function App() {
     let filteredExercises;
     // exercises based on saved exercises
     if (mode === "saved") {
+      filteredExercises = savedExercises;
     }
     // exercises based on search input value
     if (mode === "search") {
@@ -80,11 +82,8 @@ function App() {
           return (
             <Exercise
               key={index}
-              name={exercise.name}
-              description={exercise.description}
-              instructions={exercise.instructions}
-              image={exercise.image}
-              link={exercise.link}
+              exercise={exercise}
+              setSavedExercises={setSavedExercises}
               setSavedCount={setSavedCount}
             />
           );
