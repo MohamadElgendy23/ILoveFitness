@@ -5,6 +5,7 @@ import Exercise from "./components/Exercise";
 function App() {
   const [exercises, setExercises] = useState(exercisesArr);
   const [inputContent, setInputContent] = useState("");
+  const [savedCount, setSavedCount] = useState(0);
 
   function generateFilteredExercises(mode) {
     let filteredExercises;
@@ -59,15 +60,20 @@ function App() {
             </button>
           )}
         </div>
-        <button
-          className="bg-blue-600 p-2 w-1/4 rounded-md hover:bg-blue-400"
-          type="button"
-          onClick={() => {
-            setExercises(generateFilteredExercises("saved"));
-          }}
-        >
-          View Saved
-        </button>
+        <div className="w-1/4 relative">
+          <button
+            className="bg-blue-600 p-2 w-full rounded-md hover:bg-blue-400"
+            type="button"
+            onClick={() => {
+              setExercises(generateFilteredExercises("saved"));
+            }}
+          >
+            View Saved
+          </button>
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-s font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+            {savedCount}
+          </div>
+        </div>
       </div>
       <div className="flex items-center flex-col justify-center gap-5 mt-10">
         {exercises.map((exercise, index) => {
@@ -79,6 +85,7 @@ function App() {
               instructions={exercise.instructions}
               image={exercise.image}
               link={exercise.link}
+              setSavedCount={setSavedCount}
             />
           );
         })}
