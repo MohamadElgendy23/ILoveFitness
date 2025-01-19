@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Exercise({ exercise, setSavedExercises, setSavedCount }) {
+function Exercise({ exercise, setSavedExercises }) {
   const [isSaved, setIsSaved] = useState(false);
 
   function saveExercise() {
@@ -11,9 +11,9 @@ function Exercise({ exercise, setSavedExercises, setSavedCount }) {
         : [...prevState, exercise];
     });
 
-    setSavedCount((prevState) => {
-      return isSaved ? prevState - 1 : prevState + 1;
-    });
+    // setSavedCount((prevState) => {
+    //   return isSaved ? prevState - 1 : prevState + 1;
+    // });
   }
   return (
     <div className="flex items-center justify-center bg-blue-600 w-100 h-100 gap-8 p-8 rounded-md hover:bg-blue-400 relative">

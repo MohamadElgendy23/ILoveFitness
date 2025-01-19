@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import exercisesArr from "./data/Exercises";
 import Exercise from "./components/Exercise";
 function App() {
   const [exercises, setExercises] = useState(exercisesArr);
-  const [savedExercises, setSavedExercises] = useState([]);
+  const [savedExercises, setSavedExercises] = useState(() => {
+    localStorage.getItem("saved-exercises")
+      ? JSON.parse(localStorage.getItem("saved-exercises"))
+      : [];
+  });
   const [inputContent, setInputContent] = useState("");
-  const [savedCount, setSavedCount] = useState(0);
+  //const [savedCount, setSavedCount] = useState(0);
+
+  useEffect(() => {
+    localStorage.setItem("saved-exercises", JSON.stringify(savedExercises));
+  }, [savedExercises]);
 
   function generateFilteredExercises(mode) {
     let filteredExercises;
@@ -73,7 +81,7 @@ function App() {
             View Saved
           </button>
           <div className="absolute inline-flex items-center justify-center w-6 h-6 text-s font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
-            {savedCount}
+            {savedExercises.length}
           </div>
         </div>
       </div>
@@ -84,7 +92,6 @@ function App() {
               key={index}
               exercise={exercise}
               setSavedExercises={setSavedExercises}
-              setSavedCount={setSavedCount}
             />
           );
         })}
