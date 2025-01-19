@@ -14,6 +14,7 @@ function App() {
         exercise.instructions.includes(inputContent)
       );
     });
+    console.log(exercises, filteredExercises);
     return filteredExercises;
   }
   function clearInput() {
