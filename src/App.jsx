@@ -6,13 +6,22 @@ function App() {
   const [exercises, setExercises] = useState(exercisesArr);
   const [inputContent, setInputContent] = useState("");
 
-  function generateFilteredExercises() {
-    const filteredExercises = exercisesArr.filter((exercise) => {
-      return (
-        exercise.name.toLowerCase().includes(inputContent.toLowerCase()) ||
-        exercise.instructions.toLowerCase().includes(inputContent.toLowerCase())
-      );
-    });
+  function generateFilteredExercises(mode) {
+    let filteredExercises;
+    // exercises based on saved exercises
+    if (mode === "saved") {
+    }
+    // exercises based on search input value
+    if (mode === "search") {
+      filteredExercises = exercisesArr.filter((exercise) => {
+        return (
+          exercise.name.toLowerCase().includes(inputContent.toLowerCase()) ||
+          exercise.instructions
+            .toLowerCase()
+            .includes(inputContent.toLowerCase())
+        );
+      });
+    }
 
     return filteredExercises;
   }
@@ -37,7 +46,7 @@ function App() {
             value={inputContent}
             onChange={(e) => {
               setInputContent(e.target.value);
-              setExercises(generateFilteredExercises());
+              setExercises(generateFilteredExercises("search"));
             }}
             required
           />
@@ -50,8 +59,14 @@ function App() {
             </button>
           )}
         </div>
-        <button className="bg-blue-600 p-3 rounded-md" type="button">
-          Saved
+        <button
+          className="bg-blue-600 p-2 w-1/4 rounded-md hover:bg-blue-400"
+          type="button"
+          onClick={() => {
+            setExercises(generateFilteredExercises("saved"));
+          }}
+        >
+          View Saved
         </button>
       </div>
       <div className="flex items-center flex-col justify-center gap-5 mt-10">
