@@ -2,7 +2,7 @@ import React from "react";
 
 function Exercise(props) {
   return (
-    <div className="flex items-center justify-center bg-blue-600 w-100 h-100 gap-8 p-8 rounded-md">
+    <div className="flex items-center justify-center bg-blue-600 w-100 h-100 gap-8 p-8 rounded-md hover:bg-blue-400">
       <img src={props.image} alt="an image of an exercise" className="w-60" />
       <div className="flex items-center justify-center flex-col w-80">
         <h2 className="text-4xl font-bold mb-3">{props.name}</h2>
