@@ -44,7 +44,7 @@ function App() {
       <h1 className="font-bold text-6xl">ILoveFitness</h1>
       <p className="italic text-3xl">
         This app displays various muscle building exercises for gym goers and
-        lovers of fitness!
+        lovers of fitness! :)
       </p>
       <div className="flex items-center justify-center gap-3 w-1/4">
         <div className="relative w-full">
